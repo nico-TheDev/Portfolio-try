@@ -158,6 +158,7 @@ li {
   font-size: 2rem;
   background-image: -webkit-gradient(linear, left top, right top, from(cyan), color-stop(#3498db), to(#2980b9));
   background-image: linear-gradient(to right, cyan, #3498db, #2980b9);
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-style: italic;
@@ -275,6 +276,7 @@ li {
   background-image: -webkit-gradient(linear, left top, right top, from(cyan), color-stop(#3498db), to(#2980b9));
   background-image: linear-gradient(to right, cyan, #3498db, #2980b9);
   color: transparent;
+  -webkit-background-clip: text;
   background-clip: text;
   background-size: 300%;
   background-position: left;
@@ -400,6 +402,7 @@ li {
 .work__title {
   background-image: -webkit-gradient(linear, left top, right top, from(cyan), color-stop(#3498db), to(#2980b9));
   background-image: linear-gradient(to right, cyan, #3498db, #2980b9);
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
