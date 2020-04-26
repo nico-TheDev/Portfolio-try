@@ -1,0 +1,440 @@
+// VARIABLES
+$primary:#3498db;
+$primary-dark:#2980b9;
+$gradient:linear-gradient(to right, cyan,$primary,$primary-dark);
+// RESETS
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    box-sizing: border-box;
+
+    @media only screen and (max-width:37.5em){
+        font-size: 75%;
+    }
+}
+
+body{
+    font-family: 'Poppins',sans-serif;
+    line-height: 1.5;
+   
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+li{
+    list-style: none;
+}
+
+.icon{
+    width: 2rem;
+    height: 2rem;
+}
+// UTILITIES
+
+.container{
+    width: 80%;
+    margin:0 auto;
+}
+
+// COMPONENTS
+
+.btn{
+    &:link,
+    &:visited{
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        background-image: $gradient;
+        background-size: 300%;
+        background-position: left;
+        color: white;
+        padding: 0.5rem 2rem;
+        font-weight: bold;
+        border-radius: 3rem;
+        animation: move 3s ease-in-out infinite alternate;
+        transition: all 300ms;
+    }
+
+    &:hover{
+        transform: scale(1.1) translateY(-3px);
+        box-shadow: 0 0.3rem 0.4rem rgba(black,0.3);
+    }
+
+    &:active{
+        transform: scale(1) translateY(0);
+        box-shadow: none;
+    }
+}
+
+.text-primary{
+    margin: 5rem 0 2rem 0;
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 300;
+
+    &--dark{
+        color:black;
+    }
+}
+
+.text-primary-2{
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0.5rem;
+}
+
+@keyframes move{
+    from{
+        background-position: left;
+    }
+
+    to{
+        background-position: right;
+    }
+}
+
+@keyframes colored{
+    0%{
+        filter: grayscale(1);
+    }
+
+    100%{
+       filter: grayscale(0);
+    }
+}
+// ====================================LAYOUT===============================================
+
+// NAV
+.navbar{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo{
+        font-size: 2rem;
+        background-image:$gradient;
+        background-clip: text;
+        color: transparent;
+        font-style: italic;
+        position: relative;
+        transition: all 300ms;
+        &::first-letter{
+            font-size: 2.5rem;
+        }
+        &:hover{
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    }
+
+    &__list{
+        display: flex;
+        align-items: center;
+        @media only screen and (max-width:37.5em){
+            display: none;
+        }
+    }
+
+    &__link{
+        margin-right: 2rem;
+        font-weight: 300;
+
+        &:hover{
+            color: $primary;
+        }
+    }
+
+
+    &__mobile{
+        display: none;
+
+        @media only screen and (max-width:37.5em){
+            display: inline-block;
+        }
+    }
+
+    &__burger{
+        fill:$primary-dark;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+}
+
+// HEADER
+.header{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 90%;
+        text-align: center;
+    }
+
+    &__icon{
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        box-shadow: 0 0 3rem rgba($primary-dark,0.5);
+        margin-top: 2rem;
+        transition: all 300ms ease;
+        display: block;
+        filter: grayscale(1);
+        animation: colored 2s ease forwards 3s;
+        &:hover{
+            transform:translateY(-5px) scale(1.1);
+            box-shadow: 0 0 5rem rgba($primary-dark,0.5);
+        }
+    }
+
+
+    &__title{
+        font-size: 3.5rem;
+        background-image: $gradient;
+        color: transparent;
+        background-clip: text;
+        background-size: 300%;
+        background-position: left;
+        margin-bottom: 2rem;
+        animation: fadeInUp 2s ease-in forwards
+                        ,move 5s ease 3s infinite alternate;
+                   
+    }
+
+    &__word{
+        display: inline-block;
+        font-size: 2rem;
+        margin:0 2rem;
+        color: $primary-dark;
+        text-shadow: 3px 0.3rem 0 rgba(black,0.1);
+    }
+
+    &__wordicon{
+        fill:currentColor;
+    }
+}
+
+
+// Skills
+
+.skills-section{
+    position: relative;
+    background-image: linear-gradient(to bottom, $primary-dark 0%,$primary-dark 50%,$primary-dark 95%,white);
+
+}
+
+.wave{
+    background-color: white;
+    fill:$primary-dark;
+}
+
+.skills{
+
+
+    &__desc{
+        font-size: 1.2rem;
+        color:white;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 3rem;
+
+        @media only screen and (max-width:37.5em){
+            width: 100%;
+
+        }
+    }
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    grid-gap: 2rem;
+    text-align: center;
+}
+
+.skill{
+    &__icon{
+        fill:white;
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &__title{
+        font-size: 1.6rem;
+        color: white;
+        font-weight: 300;
+        margin-bottom: 1rem;
+    }
+
+    &__desc{
+        line-height: 1.8;
+        color:rgba(255, 255, 255, 0.836);
+    }
+}
+
+.wave2{
+    background-color: $primary-dark;
+}
+
+
+// LATEST WORKS
+
+.featured-works{
+    background-color: white;
+    position: relative;
+    z-index: 10;
+    margin-top: -1rem;
+    padding-top: 3rem;
+
+    .text-primary{
+        margin-top: 0;
+    }
+}
+
+.works{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(21rem,1fr));
+    grid-gap: 2rem;
+    justify-items: center;
+    margin-bottom: 2rem;
+}
+
+.work{
+    width: 21rem;
+    box-shadow: 0 0 3rem rgba(black,0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    transition: all 300ms;
+
+    &__cover{
+        overflow: hidden;
+
+       
+    }
+
+    &__img{
+        width: 100%;
+        transform: scale(1.2);
+        transition: all 300ms;
+    }
+
+    &__title{
+        background-image: $gradient;
+        background-clip: text;
+        color: transparent;
+    }
+
+    &__used{
+        background-color: crimson;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+    }
+
+    &__btn{
+        display: block;
+        width: 100%;
+        text-align: center;
+        border-radius: 0 !important;
+        animation: none !important;
+        transition: all 300ms;
+        background-position: right !important;
+        &:hover{
+            transform: scale(1);
+            box-shadow: none;
+            background-position: left !important;
+        }
+    }
+
+    &__link{
+        padding: 0.5rem 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__git{
+        fill:$primary;
+    }
+
+
+    &:hover{
+        transform: translateY(-1rem);
+        box-shadow: 0 0.3rem 3rem rgba(black,0.5);
+    }
+
+    &:hover &__cover &__img{
+        transform: scale(1);
+
+    }
+}
+
+.footer{
+    background-color: $primary-dark;
+    padding: 4rem 0;
+    margin-top: -1rem;
+    position: relative;
+    z-index: 10;
+
+    text-align: center;
+    color: white;
+    
+    .container{
+        display: grid;
+        grid-row-gap: 1rem;
+    }
+
+    &__title{
+        letter-spacing: 2px;
+    }
+
+    &__desc{
+        font-size: 1.2rem;
+    }
+
+    &__icon{
+        box-sizing: content-box;
+        border:1px solid white;
+        padding:3px;
+        fill:white;
+        border-radius: 2px;
+        transition: all 300ms;
+        &:hover{
+            fill:$primary-dark;
+            background-color: white;
+        }
+    }
+
+    &__links{
+        width: 17rem;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__copyright{
+        font-size: 0.8rem;
+    }
+}
+
